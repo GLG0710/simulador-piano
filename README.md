@@ -2,3 +2,4 @@
 <br>
 <p>Nesse simulador usei 17 peças, 7 pretas e 10 brancas, começando pelo dó.</p>
 <p>Usei javascript, css e html para fazer tudo.</p>
+<img src="print-piano.jpg">
