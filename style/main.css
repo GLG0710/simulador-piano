@@ -1,0 +1,227 @@
+:root {
+    --azul: hsl(220, 100%, 80%);
+}
+
+
+body {
+    background-color: hsl(220, 100%, 95%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+.container {
+    padding: 15px 20px;
+    background-color: hsl(210, 60%, 30%);
+    width: fit-content;
+    height: auto;
+    border-radius: 15px;
+}
+
+/*HEADER*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 5px;
+    color: hsl(0, 0%, 75%);
+    text-shadow: 0.5px 0.5px 5px var(--azul),
+                -0.5px 0px 5px var(--azul);
+    & h1 {
+        color: hsl(0, 0%, 85%);
+        font-size: 3.5rem;
+    }  
+    & div {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 2rem;
+    } 
+} 
+
+
+/*slider das teclas*/
+    /* The switch - the box around the slider */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 4.5rem;
+        height: 1.5rem;
+        margin-top: 4px;
+    }
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    /* The slider */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: hsl(220, 60%, 15%);
+        -webkit-transition: .4s;
+        transition: .4s;
+    } 
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 1.1rem;
+        width: 1.1rem;
+        left: 0.2rem;
+        bottom: 0.2rem;
+        background-color: hsl(220, 40%, 50%, 0.7);
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+    input:checked + .slider {
+        background-color: var(--azul);
+    }
+    input:focus + .slider {
+        box-shadow: 0 0 1px var(--azul);
+    }
+    input:checked + .slider:before {
+        -webkit-transform: translateX(3rem);
+        -ms-transform: translateX(3rem);
+        transform: translateX(3rem);
+        background-color: hsl(220, 50%, 40%);
+    }
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+    .slider.round:before {
+        border-radius: 50%;
+    }
+   
+/*VOLUME*/
+    input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 15rem;
+        height: 1.1rem;
+        margin-top: 5.2px;
+        background: linear-gradient(to right, var(--azul) 50%, white 50%); /* Cor inicial: metade preto, metade branco */
+        outline: none;
+        border-radius: 15px;
+      }
+      
+      input[type="range"]::-webkit-slider-runnable-track {
+        height: 10px;
+        border-radius: 15px;
+      }
+      
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 1.4rem;
+        height: 1.4rem;
+        border-radius: 50%;
+        background: white;
+        border: 3px solid var(--azul);
+        cursor: pointer;
+        margin-top: -5.8px; /* Centraliza o thumb no trilho */
+      }
+      
+      input[type="range"]::-moz-range-thumb {
+        width: 1.4rem;
+        height: 1.4rem;
+        border-radius: 50%;
+        background: white;
+        border: 3px solid var(--azul);
+        cursor: pointer;
+      }
+
+
+/*PIANO*/    
+.piano-keys {
+    list-style: none;
+    display: flex;
+    position: relative;
+    margin-top: 20px;
+    font-size: 1.8rem;
+}
+
+/*BRANCAS*/
+.white {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    
+    padding: 0px 0px 20px 0px;
+    margin-right: 1.5px;
+    height: 22rem;
+    width: 7rem;
+    
+    background-image: linear-gradient(
+        hsl(220, 10%, 90%) 0%, 
+        hsl(220, 10%, 80%) 75%, 
+        hsl(220, 10%, 70%) 100% 
+    );
+    color: hsl(220, 10%, 15%);
+    border: 2px outset hsl(0, 0%, 50%);
+    box-shadow: 0 4px 10px hsla(0, 0%, 0%, 0.3);
+}
+.white.pressed {
+    background-image: linear-gradient(
+        hsl(220, 10%, 70%) 25%,
+        hsl(220, 15%, 80%) 75%,
+        hsl(220, 15%, 90%) 100%
+    );
+    color: hsl(220, 10%, 45%);
+    border: 2px inset hsl(0, 0%, 50%);
+    box-shadow: 0 4px 10px hsla(0, 0%, 0%, 0.3);
+}
+
+/*PRETAS*/
+.black {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 1;
+    position: absolute;
+
+    height: 11rem;
+    width: 4rem;
+    padding: 0 0px 10px 0px;
+    
+    background-image: linear-gradient(
+                                    hsl(220, 15%, 30%) 25%,
+                                    hsl(220, 15%, 25%) 50%,
+                                    hsl(220, 15%, 20%) 75%,
+                                    hsl(220, 10%, 15%) 100%
+                                    );
+    color: hsl(220, 10%, 90%);
+    border: 2px outset hsl(0, 0%, 0%);
+    box-shadow: 0 4px 8px hsla(0, 0%, 0%, 0.5);
+}
+.black.pressed {
+    background-image: linear-gradient(
+                                    hsl(220, 10%, 15%) 0%,
+                                    hsl(220, 15%, 20%) 25%,
+                                    hsl(220, 15%, 25%) 50%,
+                                    hsl(220, 15%, 30%) 100%);
+    border: 2px inset hsl(0, 0%, 0%);
+    box-shadow: none;
+    color: hsl(220, 10%, 60%);
+}
+
+/* Alinhamento das teclas pretas */
+.black:nth-child(2) { left: 5rem; } /* W, entre A e S */
+.black:nth-child(4) { left: 12.2rem; } /* E, entre S e D */
+.black:nth-child(7) { left: 26.3rem; } /* T, entre F e G */
+.black:nth-child(9) { left: 33.4rem; } /* Y, entre G e H */
+.black:nth-child(11) { left: 40.5rem; } /* U, entre H e J */
+.black:nth-child(14) { left: 54.7rem; } /* O, entre K e L */
+.black:nth-child(16) { left: 61.8rem; } /* P, entre L e Ç */
+
+
+
